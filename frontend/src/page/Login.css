@@ -1,0 +1,81 @@
+.LoginPage {
+    display: grid;
+    align-content: center;
+    justify-content: center;
+}
+
+.error {
+    border: 2px dashed #ff4444;
+    color: #ff4444;
+}
+
+    .warnings {
+        height: 5vh;
+    }
+
+    .loginForm {
+        display: grid;
+        grid-template-areas:'loginName loginName loginName loginName loginName loginName' 
+                            'labelEmailLogin emailLogin emailLogin emailLogin emailLogin emailLogin' 
+                            'labelPasswordLogin passwordLogin passwordLogin passwordLogin passwordLogin passwordLogin' 
+                            'submitButtonLogin submitButtonLogin submitButtonLogin submitButtonLogin submitButtonLogin submitButtonLogin';
+        gap: 10px;
+        border: 1px solid #333;
+        border-radius: 7px;
+        box-shadow: 0 0 5px #999;
+        height: 60vh;
+        padding: 3vw;
+        width: 50vw;
+    }
+
+        .loginName {
+            grid-area: loginName;
+            height: 7vh;
+            font-family: Verdana, Geneva, Tahoma, sans-serif;
+            font-size: 5vw;
+            font-weight: bold;
+            letter-spacing: 5px;
+            text-align: center;
+        }
+
+        .labelLogin {
+            display: grid;
+            align-content: normal;
+            font-size: 2vw;
+            font-weight: 700;
+        }
+
+        .labelEmailLogin {
+            grid-area: labelEmailLogin;
+        }
+
+        .labelPasswordLogin {
+            grid-area: labelPasswordLogin;
+        }
+
+        .emailLogin {
+            grid-area: emailLogin;
+            height: 3vh;
+            padding: 10px;
+        }
+
+        .passwordLogin {
+            grid-area: passwordLogin;
+            height: 3vh;
+            padding: 10px;
+        }
+
+        .submitButtonLogin {
+            grid-area: submitButtonLogin;
+            background: #222;
+            color: #fff;
+            cursor: pointer;
+            font-size: 20px;
+            height: 7vh;
+            padding: 10px;
+            text-align: center;
+        }
+
+        .submitButtonLogin:hover {
+            background: #444;
+        }

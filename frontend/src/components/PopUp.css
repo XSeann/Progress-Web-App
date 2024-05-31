@@ -1,0 +1,37 @@
+.PopUpBoxCon {
+    overflow: hidden;
+    height: 7vh;
+}
+
+    .PopUpBox {
+        display: grid;
+        align-content: center;
+        position: relative;
+        top: calc(100% - 1vh);
+        background: #333;
+        border: 1px solid #555;
+        border-radius: 5px;
+        color: #fff;
+        font-size: 1vw;
+        font-weight: 700;
+        height: inherit;
+        width: 25vw;
+        padding-left: 5px;
+        padding-right: 5px;
+        transition: top 1s;
+        visibility: hidden;
+    }
+
+    .moveUp {
+        top: 0vh;
+        visibility: visible;
+    }
+
+    .moveDown {
+        top: calc(100% - .5vh);
+        visibility: visible;
+    }
+
+    .popUpInvisible {
+        visibility: hidden;
+    }

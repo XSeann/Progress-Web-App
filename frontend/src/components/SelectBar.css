@@ -1,0 +1,73 @@
+.selectBarBox {
+    display: grid;
+    grid-template-areas: 
+                        'select'
+                        'contents';
+    position: relative;
+    z-index: 0;
+    background: hsl(220, 71%, 50%);
+    height: 2vh;
+    overflow: visible;
+}
+
+.selectBarBox > * {
+    position: relative;
+    background: hsl(220, 71%, 50%);
+    border: 1px solid hsl(220, 71%, 15%);
+}
+
+.hasButton {
+    grid-template-areas:
+                        'select select select button'
+                        'contents contents contents contents';
+}
+
+    .cursor {
+        cursor: pointer;
+    }
+
+    .selectBarSelected {
+        display: grid;
+        align-content: center;
+        justify-content: center;
+        grid-area: select;
+        z-index: 3;
+        height: 4vh;
+    }
+
+    .selectBarButton {
+        grid-area: button;
+        z-index: 3;
+    }
+
+    .selectBarContentsArmor {
+        display: grid;
+        grid-area: contents;
+        z-index: 1;
+        height: 0;
+        overflow: hidden;
+        transition: height 1s;
+    }
+
+    .moveDownContentsArmor {
+        height: 150px;
+    }
+
+    .selectBarContents {
+        display: grid;
+        position: relative;
+        bottom: 100%;
+        color: #fff;
+        height: 7vh;
+        transition: bottom 1s;
+    }
+
+    .selectBarContents > span {
+        display: grid;
+        align-content: center;
+        justify-content: center;
+    }
+
+    .moveDownContents {
+        bottom: 0%;
+    }

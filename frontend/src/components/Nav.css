@@ -1,0 +1,55 @@
+.nav {
+    display: grid;
+    align-content: center;
+    justify-content: center;
+    border-bottom: 1px solid #ddd;
+    box-shadow: 0 0 7px #aaa;
+    padding: 5px;
+}
+
+.navUserOk {
+    grid-template-columns: 10% 50% 10% 10% 10% 10%;
+}
+
+.navUserNotOk {
+    grid-template-columns: 10% 70% 10% 10%;
+}
+
+    .nav > a {
+        display: grid;
+        grid-template-columns: 100%;
+        align-content: center;
+        justify-content: center;
+        color: #222;
+        cursor: pointer;
+        height: 7.5vh;
+        font-size: 15px;
+        font-weight: 400;
+        text-align: center;
+        text-decoration: none;
+    }
+
+    #user {
+        display: grid;
+        align-content: center;
+        font-size: 0.9vw;
+    }
+
+    .nav > a:not(#logoLink):hover {
+        background: #333;
+        color: #fff;
+    }
+
+    a[id="logoLink"] > * {
+        height: 100%;
+        width: 100%;
+    }
+
+    a:not(#logoLink) > * {
+        height: 4vh;
+        width: 100%;
+    }
+
+    a:not(#logoLink):hover > svg path {
+        fill: #fff !important;
+    }

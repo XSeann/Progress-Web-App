@@ -1,0 +1,32 @@
+::-webkit-scrollbar {
+    height: 0.5px;
+    width: 0.5px;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #333;
+}
+
+.formContainer {
+    display: grid;
+    grid-template-columns: 100%;
+    align-content: center;
+    justify-content: center;
+    row-gap: 10px;
+}
+
+    .elementsBox {
+        display: grid;
+        align-content: center;
+        justify-content: center;
+        column-gap: 4px;
+        row-gap: 10px;
+    }
+
+        input {
+            padding: 10px;
+        }
+
+        textarea {
+            resize: none;
+        }

@@ -1,0 +1,86 @@
+.SignupPage {
+    display: grid;
+    align-content: center;
+    justify-content: center;
+}
+
+.error {
+    border: 2px dashed #ff4444;
+    color: #ff4444;
+}
+
+    .warnings {
+        height: 5vh;
+    }
+
+    input {
+        display: block;
+    }
+
+    .signupForm {
+        display: grid;
+        grid-template-areas:'signupName signupName signupName signupName signupName signupName' 
+                        'labelEmailSignup emailSignup emailSignup emailSignup emailSignup emailSignup' 
+                        'labelPasswordSignup passwordSignup passwordSignup passwordSignup passwordSignup passwordSignup' 
+                        'submitButtonSignup submitButtonSignup submitButtonSignup submitButtonSignup submitButtonSignup submitButtonSignup';
+        gap: 10px;
+        border: 1px solid #333;
+        border-radius: 7px;
+        box-shadow: 0 0 5px #999;
+        height: 60vh;
+        padding: 3vw;
+        width: 50vw;
+    }
+
+        .signupName {
+            grid-area: signupName;
+            height: 7vh;
+            font-family: Verdana, Geneva, Tahoma, sans-serif;
+            font-size: 5vw;
+            font-weight: bold;
+            letter-spacing: 5px;
+            text-align: center;
+        }
+
+        .labelSignup {
+            display: grid;
+            align-content: normal;
+            font-size: 2vw;
+            font-weight: 700;
+        }
+
+        .labelEmailSignup {
+            grid-area: labelEmailSignup;
+        }
+
+        .labelPasswordSignup {
+            grid-area: labelPasswordSignup;
+        }
+
+        .emailSignup {
+            grid-area: emailSignup;
+            height: 3vh;
+            padding: 10px;
+        }
+
+        .passwordSignup {
+            display: grid;
+            grid-area: passwordSignup;
+            height: 3vh;
+            padding: 10px;
+        }
+
+        .submitButtonSignup {
+            grid-area: submitButtonSignup;
+            background: #222;
+            color: #fff;
+            cursor: pointer;
+            font-size: 20px;
+            height: 7vh;
+            padding: 10px;
+            text-align: center;
+        }
+
+        .submitButtonSignup:hover {
+            background: #444;
+        }

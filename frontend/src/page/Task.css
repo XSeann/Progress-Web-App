@@ -1,0 +1,140 @@
+.inp {
+    padding: 5px;
+}
+
+.error {
+    border: 2px dashed #ff4444;
+    color: #ff4444;
+}
+
+label {
+    display: grid;
+    align-content: center;
+}
+
+.TaskPage {
+    display: grid;
+    align-content: center;
+    justify-content: center; 
+    gap: 1vh;
+}
+
+    .TaskForm {
+        display: grid;
+        grid-template-columns: 95%;
+        grid-template-rows: 8% 8% 55% 10% 5%;
+        align-content: center;
+        justify-content: center;
+        gap: 10px;
+        border: 1px solid #222;
+        border-radius: 10px;
+        box-shadow: 0 0 10px #ccc;
+        height: 75vh;
+        width: 50vw;
+        padding: 5px;
+    }
+
+        .TaskFormInpCon {
+            display: grid;
+            gap: 10px;
+
+        }
+
+            .TaskFormInpCon2 {
+                display: grid;
+                gap: 20px;
+                overflow-y: scroll;
+                overflow-x: hidden;
+            }
+
+            .TaskFormInpCon2::-webkit-scrollbar {
+                width: 2px;
+            }
+
+            .TaskFormInpCon2::-webkit-scrollbar-thumb {
+                background: #222;
+            }
+
+                .TaskFormInpCon3 {
+                    display: grid;
+                    grid-template-columns: 99%;
+                    grid-template-rows: 33% 33% 33%;
+                    justify-content: center;
+                    gap: 5px;
+                    height: 15vh;
+                }
+
+                    .TaskFormInpCon4 {
+                        display: grid;
+                        justify-content: center;
+                        gap: 5px;
+                    }
+
+                        .delete {
+                            display: grid;
+                            align-content: center;
+                            justify-content: center;
+                            background: red;
+                            color: #fff;
+                            cursor: pointer;
+                            font-size: 10px;
+                            font-weight: 700;
+                        }
+            
+            .addInp {
+                display: grid;
+                align-content: center;
+                justify-content: center;
+                background: #222;
+                color: #fff;
+                cursor: pointer;
+                font-size: 20px;
+                padding: 5px;
+            }
+
+            .addInp:hover {
+                background: #000;
+            }
+
+            .submitForm {
+                display: grid;
+                align-content: center;
+                justify-content: center;
+                background: #222;
+                color: #fff;
+                cursor: pointer;
+                font-size: 20px;
+                padding: 5px;
+            }
+
+            .submitForm:hover {
+                background: #000;
+            }
+
+        .TaskFormTmpCon {
+            display: grid;
+            justify-content: center;
+        }
+
+            .taskTmpBtn {
+                cursor: pointer;
+                font-family: Arial, Helvetica, sans-serif;
+                font-weight: bold;
+                text-decoration: underline;
+            }
+
+            .taskTmpBtn:hover {
+                color: rgb(57, 57, 151);
+            }
+
+    .popUpsCon {
+        position: relative;
+        right: 24vw;
+        height: 7vh;
+        overflow: hidden;
+    }
+
+    .popUpsCon > * {
+        position: absolute;
+        height: calc(100% - .75vh) !important;
+    }

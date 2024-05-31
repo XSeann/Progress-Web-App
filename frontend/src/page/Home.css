@@ -1,0 +1,66 @@
+.Home {
+    height: 90vh;
+    overflow-x: hidden;
+    overflow-y: scroll;
+}
+
+.Home::-webkit-scrollbar {
+    width: 2px;
+}
+
+.Home::-webkit-scrollbar-thumb {
+    background: #222;
+}
+
+    .taskBody {
+        display: grid;
+        gap: 10px;
+        position: relative;
+        padding: 10px;
+        animation: moveRight 3s 1;
+    }
+
+    @keyframes moveRight {
+        0%{right: 100vw}
+        100%{right: 0vw;}
+    }
+
+        .task {
+            display: grid;
+            grid-template-columns: 100%;
+            border: 1px solid #333;
+            border-left: 20px solid #333;
+            border-radius: 5px;
+            height: 50px;
+            overflow: hidden;
+            padding: 10px;
+            transition: height 1s;
+        }
+
+        .hidTxt > span:not(:nth-child(1)) {
+            visibility: hidden;
+        }
+
+        .task:hover {
+            background: #333;
+            border: 1px solid #777;
+            border-left: 20px solid #777;
+            color: #fff;
+        }
+
+            .taskDetail {
+                display: grid;
+                align-content: center;
+                padding: 5px;
+            }
+
+    .taskEmpty {
+        display: grid;
+        align-content: center;
+        justify-content: center;
+        color: #777;
+        font-family: Georgia, 'Times New Roman', Times, serif;
+        font-size: xx-large;
+        font-weight: bolder;
+        height: 90vh;
+    }
