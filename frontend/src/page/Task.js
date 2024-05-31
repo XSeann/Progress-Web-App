@@ -92,7 +92,7 @@ function Task() {
 
         setTaskData(e => ({...e, error: err}))
 
-        const responsePost = await postData('http://localhost:7000/api/file', {task: {taskTag: taskData.taskTag, taskData: taskData.taskInputsData}, owner: user.email})
+        const responsePost = await postData('https://progress-web-app.onrender.com/api/file', {task: {taskTag: taskData.taskTag, taskData: taskData.taskInputsData}, owner: user.email})
 
         const array = Array.from(taskData.taskInputsData)
         for (let i = 0; i < taskData.taskInputsData.length; i++) {
@@ -139,7 +139,7 @@ function Task() {
 
         setTaskData(e => ({...e, error: err}))
 
-        const responsePost = await postData('http://localhost:7000/api/taskTmp', {task: {taskTag: taskData.taskTag , taskData: taskData.taskInputsData}, owner: user.email})
+        const responsePost = await postData('https://progress-web-app.onrender.com/api/taskTmp', {task: {taskTag: taskData.taskTag , taskData: taskData.taskInputsData}, owner: user.email})
 
         setTaskData(e => ({...e, ok: responsePost}))
 
@@ -152,7 +152,7 @@ function Task() {
     }
 
     async function getTaskTmp() {
-        const responseGet = await postData(`http://localhost:7000/api/taskTmp/email`, {email: user.email})
+        const responseGet = await postData(`https://progress-web-app.onrender.com/api/taskTmp/email`, {email: user.email})
 
         const temporaryArray = []
         const temporaryArray2 = []

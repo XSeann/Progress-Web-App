@@ -12,7 +12,7 @@ function Home() {
     const {user} = useAuthContext()
 
     async function getData() {
-        const responseGet = await fetch('http://localhost:7000/api/file/owner', {
+        const responseGet = await fetch('https://progress-web-app.onrender.com/api/file/owner', {
             method: 'POST',
             headers: {"Content-Type" : "application/json"},
             body: JSON.stringify({email: user.email})
