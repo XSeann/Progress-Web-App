@@ -13,6 +13,7 @@ import './Signup.css'
 function Signup() {
     const [signupData, setSignup] = useState({email: '', password: '', error: null, empty: [], ch: false})
     const {submitSignup, error, success} = useSignup()
+    const link = process.env.REACT_APP_PRODUCTION === 'true' ? "https://progress-web-app.onrender.com" : "http://localhost:7000"
 
     async function submit(e) {
         e.preventDefault()
@@ -35,7 +36,7 @@ function Signup() {
             return
         }
         
-        submitSignup(signupData.email, signupData.password)
+        submitSignup(link + '/api/user/signup', signupData.email, signupData.password)
 
         if (success) {
             setSignup(e => ({...e, email: '', password: '', error: error, empty: []}))

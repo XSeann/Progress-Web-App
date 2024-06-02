@@ -18,7 +18,7 @@ import Nav from './components/Nav'
 
 function App() {
   const {user} = useAuthContext()
-
+  console.log(process.env.REACT_APP_PRODUCTION === 'true' ? 'true' : 'false')
   return (
     <div className="App">
       <BrowserRouter>

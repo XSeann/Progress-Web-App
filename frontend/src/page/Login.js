@@ -13,6 +13,7 @@ import './Login.css'
 function Login() {
     const [loginData, setLogin] = useState({email: '', password: '', empty: [], ch: false, error: null})
     const {login, error} = useLogin()
+    const link = process.env.REACT_APP_PRODUCTION === 'true' ? "https://progress-web-app.onrender.com" : "http://localhost:7000"
 
     async function submit(e) {
         e.preventDefault()
@@ -35,7 +36,7 @@ function Login() {
             return
         }
         
-        login(loginData.email, loginData.password)
+        login(link + '/api/user/login', loginData.email, loginData.password)
         
         if (error !== null) {
             setLogin(e => ({...e, error: error}))
@@ -45,6 +46,8 @@ function Login() {
             setLogin(e => ({...e, email: '', password: '', empty: [], error: error}))
         }
     }
+
+    console.log(link)
     
     return(
         <div className='LoginPage'>

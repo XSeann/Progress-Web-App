@@ -71,3 +71,18 @@
     .moveDownContents {
         bottom: 0%;
     }
+    
+    .gridColTwo {
+        grid-template-columns: 85% 15%;
+    }
+
+    .deleteData {
+        display: grid;
+        align-content: center;
+        justify-content: center;
+        cursor: pointer;
+    }
+
+    .deleteData:hover {
+        background: #333;
+    }

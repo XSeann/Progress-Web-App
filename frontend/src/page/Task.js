@@ -18,6 +18,7 @@ import { postData } from '../scripts/FormScripts'
 function Task() {
     const [taskData, setTaskData] = useState({taskTag: '', taskGetTag: [], taskTagChange: '', taskGetInputs: [], taskInputsData: [], ok: undefined, error: []})
     const {user} = useAuthContext()
+    const link = process.env.REACT_APP_PRODUCTION === 'true' ? "https://progress-web-app.onrender.com" : "http://localhost:7000"
 
     function gridTidy(num) {
         const gridSize = 100 / num
@@ -92,7 +93,7 @@ function Task() {
 
         setTaskData(e => ({...e, error: err}))
 
-        const responsePost = await postData('https://progress-web-app.onrender.com/api/file', {task: {taskTag: taskData.taskTag, taskData: taskData.taskInputsData}, owner: user.email})
+        const responsePost = await postData(`${link}/api/file`, {task: {taskTag: taskData.taskTag, taskData: taskData.taskInputsData}, owner: user.email})
 
         const array = Array.from(taskData.taskInputsData)
         for (let i = 0; i < taskData.taskInputsData.length; i++) {
@@ -139,7 +140,7 @@ function Task() {
 
         setTaskData(e => ({...e, error: err}))
 
-        const responsePost = await postData('https://progress-web-app.onrender.com/api/taskTmp', {task: {taskTag: taskData.taskTag , taskData: taskData.taskInputsData}, owner: user.email})
+        const responsePost = await postData(`${link}/api/taskTmp`, {task: {taskTag: taskData.taskTag , taskData: taskData.taskInputsData}, owner: user.email})
 
         setTaskData(e => ({...e, ok: responsePost}))
 
@@ -152,13 +153,13 @@ function Task() {
     }
 
     async function getTaskTmp() {
-        const responseGet = await postData(`https://progress-web-app.onrender.com/api/taskTmp/email`, {email: user.email})
+        const responseGet = await postData(`${link}/api/taskTmp/email`, {email: user.email})
 
         const temporaryArray = []
         const temporaryArray2 = []
 
         for (const key in responseGet) {
-            temporaryArray.push(responseGet[key].task.taskTag)
+            temporaryArray.push({name: responseGet[key].task.taskTag, id: responseGet[key]._id})
             temporaryArray2.push(responseGet[key].task.taskData)
         }
 
@@ -173,6 +174,10 @@ function Task() {
         setTaskData(e => ({...e, taskTag: tag, taskTagChange: tag}))
     }
 
+    function deletedData() {
+        getTaskTmp()
+    }
+
     return (
         <div className='TaskPage'>
             <form className='TaskForm' autoComplete='off' onSubmit={(e) => e.preventDefault()}>
@@ -182,7 +187,7 @@ function Task() {
                             value={taskData.taskTag} onChange={(f) => setTaskData(e => ({...e, taskTag: f.target.value}))} placeholder='Task Tag'
                     />
                 </div>
-                <SelectBar data={taskData.taskGetTag ? taskData.taskGetTag : ['Choose Template']} headData={'Select Template'} onClick={taskData.taskGetTag ? templateChange : () => {}} styleSelect={{background: '#222', color: '#fff', fontSize: '20px'}} styleBar={{background: '#222', color: '#fff', fontSize: '20px'}} styleBarSelect={{background: '#222', hover: {background: '#333'}}}/> 
+                <SelectBar data={taskData.taskGetTag ? taskData.taskGetTag : ['Choose Template']} link={link + '/api/taskTmp'} delData={true} headData={'Select Template'} onClick={taskData.taskGetTag ? templateChange : () => {}} onClickDel={deletedData} styleSelect={{background: '#222', color: '#fff', fontSize: '20px'}} styleBar={{background: '#222', color: '#fff', fontSize: '20px'}} styleBarSelect={{background: '#222', hover: {background: '#333'}}}/> 
                 <div className='TaskFormInpCon' style={{gridTemplateColumns: gridTidy(1)}}>
                     <div className='TaskFormInpCon2'>
                         {taskData.taskInputsData && taskData.taskInputsData.map((e, num) => 

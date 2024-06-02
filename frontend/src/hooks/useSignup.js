@@ -5,8 +5,8 @@ export function useSignup() {
     const [success, setSuccess] = useState(false)
     const [error, setError] = useState(null)
 
-    async function submitSignup(email, password) {
-        const responsePost = await fetch('https://progress-web-app.onrender.com/api/user/signup', {
+    async function submitSignup(link, email, password) {
+        const responsePost = await fetch(link, {
             method: 'POST',
             headers: {'Content-Type':'application/json'},
             body: JSON.stringify({email, password})

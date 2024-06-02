@@ -10,9 +10,10 @@ import './Home.css'
 function Home() {
     const [homeData, setHomeData] = useState({taskCompleted: [], taskEmpty: false, hover: false, pos: 0, error: undefined})
     const {user} = useAuthContext()
+    const link = process.env.REACT_APP_PRODUCTION === 'true' ? "https://progress-web-app.onrender.com" : "http://localhost:7000"
 
     async function getData() {
-        const responseGet = await fetch('https://progress-web-app.onrender.com/api/file/owner', {
+        const responseGet = await fetch(link + '/api/file/owner', {
             method: 'POST',
             headers: {"Content-Type" : "application/json"},
             body: JSON.stringify({email: user.email})
